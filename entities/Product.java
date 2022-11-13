@@ -1,7 +1,5 @@
 package aula1.entities;
 
-import java.util.Locale;
-
 public class Product {
 
     private String name;
