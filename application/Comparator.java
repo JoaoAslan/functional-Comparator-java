@@ -15,7 +15,9 @@ public class Comparator {
         list.add(new Product("Notebook", 1200.0));
         list.add(new Product("Tablet", 450.0));
 
-        Collections.sort(list);
+        /*  List: default void sort(Comparator<? super E> c)
+            https://docs.oracle.com/javase/10/docs/api/java/util/List.html */
+        list.sort(new MyComparator());
 
         for (Product p : list) {
             System.out.println(p);
