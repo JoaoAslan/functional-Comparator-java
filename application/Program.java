@@ -3,10 +3,10 @@ package aula1.application;
 import aula1.entities.Product;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Comparator {
+public class Program {
     public static void main(String[] args) {
 
         List<Product> list = new ArrayList<>();
@@ -15,9 +15,15 @@ public class Comparator {
         list.add(new Product("Notebook", 1200.0));
         list.add(new Product("Tablet", 450.0));
 
-        /*  List: default void sort(Comparator<? super E> c)
-            https://docs.oracle.com/javase/10/docs/api/java/util/List.html */
-        list.sort(new MyComparator());
+        // CLASSE ANONIMA
+        Comparator<Product> comp = new Comparator<Product>() {
+            @Override
+            public int compare(Product p1, Product p2) {
+                return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+            }
+        };
+
+        list.sort(comp);
 
         for (Product p : list) {
             System.out.println(p);
