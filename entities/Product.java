@@ -1,6 +1,8 @@
 package aula1.entities;
 
-public class Product {
+import java.util.Locale;
+
+public class Product implements Comparable<Product> {
 
     private String name;
     private Double price;
@@ -24,6 +26,11 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return getName().toUpperCase().compareTo(o.getName().toUpperCase());
     }
 
     @Override
